@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Units")
-data class Unit(
+data class Measure(
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Long,
+    var id: Long,
 
     @ColumnInfo(name = "name")
-    val name: String
+    var name: String
 )

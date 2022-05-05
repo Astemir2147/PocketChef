@@ -4,16 +4,16 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Recipes")
+@Entity(tableName = "recipes")
 data class Recipe(
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Long,
+    var id: Long,
 
     @ColumnInfo(name = "title")
-    val title: String,
+    var title: String,
 
     @ColumnInfo(name = "description")
-    val description: String
+    var description: String
 )

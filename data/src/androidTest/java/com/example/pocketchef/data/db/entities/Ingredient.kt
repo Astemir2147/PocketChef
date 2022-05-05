@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 data class Ingredient(
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Long,
+    var id: Long,
 
     @ColumnInfo(name = "name")
-    val name: String
+    var name: String
 )
