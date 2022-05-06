@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "recipes")
 data class Recipe(
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Long,
+    val id: Long,
 
     @ColumnInfo(name = "title")
-    var title: String,
+    val title: String,
 
     @ColumnInfo(name = "description")
-    var description: String
+    val description: String
 )

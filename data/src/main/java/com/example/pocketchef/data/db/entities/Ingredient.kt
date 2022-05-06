@@ -4,13 +4,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Units")
-data class Measure(
-
-    @PrimaryKey
+@Entity(tableName="ingredients")
+data class Ingredient(
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Long,
+    val id: Long,
 
     @ColumnInfo(name = "name")
-    var name: String
+    val name: String
 )
