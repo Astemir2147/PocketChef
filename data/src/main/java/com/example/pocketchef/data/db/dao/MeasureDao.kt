@@ -14,4 +14,7 @@ interface MeasureDao {
 
     @Query("SELECT * FROM measures WHERE id = :id")
     fun getById(id: Long): Measure
+
+    @Query("SELECT * FROM measures LIMIT :numberMeasures OFFSET :offset")
+    fun getMeasures(numberMeasures: Long, offset: Long): List<Measure>
 }

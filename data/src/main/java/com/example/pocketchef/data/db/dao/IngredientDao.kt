@@ -14,4 +14,7 @@ interface IngredientDao {
 
     @Query("SELECT * FROM ingredients WHERE id = :id")
     fun getById(id: Long): Ingredient
+
+    @Query("SELECT * FROM ingredients LIMIT :numberIngedients OFFSET :offset")
+    fun getIngredients(numberIngedients: Long, offset: Long): List<Ingredient>
 }

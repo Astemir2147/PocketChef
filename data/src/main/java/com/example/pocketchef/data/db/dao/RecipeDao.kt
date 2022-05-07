@@ -17,4 +17,7 @@ interface RecipeDao {
 
     @Query("SELECT * FROM recipes WHERE id = :id")
     fun getById(id: Long): Recipe
+
+    @Query("SELECT * FROM recipes LIMIT :numberRecipes OFFSET :offset")
+    fun getRecipes(numberRecipes: Long, offset: Long): List<Recipe>
 }
