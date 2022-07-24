@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "71677042578",
+    "project_id": "pocketchef-68237",
+    "storage_bucket": "pocketchef-68237.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71677042578:android:c29f68250b3363a6a32b4b",
+        "android_client_info": {
+          "package_name": "com.example.pocketchef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71677042578-hei4eo1lvies9h9sbsjk3v9a0jfajnin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkt1LPuXhG743f44DfHaCyZ40J4dTgnfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71677042578-hei4eo1lvies9h9sbsjk3v9a0jfajnin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71677042578:android:1888e10ef8187be8a32b4b",
+        "android_client_info": {
+          "package_name": "com.example.pocketchef.presentation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71677042578-hei4eo1lvies9h9sbsjk3v9a0jfajnin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkt1LPuXhG743f44DfHaCyZ40J4dTgnfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71677042578-hei4eo1lvies9h9sbsjk3v9a0jfajnin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71677042578:android:d832e7e7de1eebeba32b4b",
+        "android_client_info": {
+          "package_name": "com.example.pocketchef.presentation.ui.authentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71677042578-hei4eo1lvies9h9sbsjk3v9a0jfajnin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkt1LPuXhG743f44DfHaCyZ40J4dTgnfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71677042578-hei4eo1lvies9h9sbsjk3v9a0jfajnin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
