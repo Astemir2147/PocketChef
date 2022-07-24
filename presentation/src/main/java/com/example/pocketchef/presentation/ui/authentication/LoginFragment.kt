@@ -7,39 +7,44 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
-
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
+import com.example.core.App
 import com.example.pocketchef.presentation.R
 import com.example.pocketchef.presentation.databinding.FragmentLoginBinding
+import com.example.pocketchef.presentation.ui.di.DaggerPresentationComponent
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import model.AuthDateUser
+import javax.inject.Inject
 
 class LoginFragment : Fragment() {
-    private val navController by lazy {
-        Navigation.findNavController(
-            requireActivity(),
-            R.id.nav_host_fragment_activity_main
-        )
-    }
-
+    @Inject lateinit var factory: ViewModelProvider.Factory
+    private val postsViewModel: LoginViewModel by navGraphViewModels(R.id.mobile_navigation) { factory }
     private var loginBinding: FragmentLoginBinding? = null
     private val binding get() = loginBinding!!
     private lateinit var auth: FirebaseAuth
+    private lateinit var loginViewModel: LoginViewModel
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        DaggerPresentationComponent.builder()
+            .coreComponent(App.coreComponent(requireContext()))
+            .build()
+            .inject(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = Firebase.auth
-
-
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         loginBinding = FragmentLoginBinding.inflate(inflater, container, false)
-
+        loginViewModel = ViewModelProvider(this, factory)
+            .get(LoginViewModel::class.java)
         return binding.root
     }
 
@@ -48,7 +53,8 @@ class LoginFragment : Fragment() {
         binding.authAsGuest.setOnClickListener { successAuth() }
         binding.loginButton.setOnClickListener {
             binding.root.hideKeyboard()
-            signIn() }
+            signIn()
+        }
     }
 
     private fun getAuthenticateUser(): AuthDateUser {
@@ -69,20 +75,23 @@ class LoginFragment : Fragment() {
             if (task.isSuccessful) {
                 auth.currentUser
                 successAuth()
-            }
-            else toast("fail")
+            } else showSnackBar("fail")
         }
     }
+
     private fun View.hideKeyboard() {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(windowToken, 0)
     }
-    private fun toast(message: String) {
 
-       Snackbar.make(
+    private fun showSnackBar(message: String) {
+        Snackbar.make(
             binding.root,
             message,
             Snackbar.LENGTH_SHORT
-        ).show()
+        ).setAction(cancel){}.show()
+    }
+    companion object{
+        const val cancel = "cancel"
     }
 }
