@@ -12,17 +12,19 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.example.core.App
+import com.example.core.extension.showSnackBar
 import com.example.pocketchef.presentation.R
 import com.example.pocketchef.presentation.databinding.FragmentLoginBinding
 import com.example.pocketchef.presentation.ui.di.DaggerPresentationComponent
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import model.AuthDateUser
+import com.example.pocketchef.data.db.model.AuthDateUser
 import javax.inject.Inject
 
 class LoginFragment : Fragment() {
-    @Inject lateinit var factory: ViewModelProvider.Factory
+    @Inject
+    lateinit var factory: ViewModelProvider.Factory
     private val postsViewModel: LoginViewModel by navGraphViewModels(R.id.mobile_navigation) { factory }
     private var loginBinding: FragmentLoginBinding? = null
     private val binding get() = loginBinding!!
@@ -36,6 +38,7 @@ class LoginFragment : Fragment() {
             .build()
             .inject(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = Firebase.auth
         super.onCreate(savedInstanceState)
@@ -70,12 +73,17 @@ class LoginFragment : Fragment() {
     private fun signIn() {
 
         val user = getAuthenticateUser()
-        auth.signInWithEmailAndPassword(user.email, user.password).addOnCompleteListener(requireActivity())
-        { task ->
-            if (task.isSuccessful) {
-                auth.currentUser
-                successAuth()
-            } else showSnackBar("fail")
+        if (postsViewModel.validateFields(user)) {
+            auth.signInWithEmailAndPassword(user.email, user.password).addOnCompleteListener(requireActivity())
+            { task ->
+                if (task.isSuccessful) {
+                    auth.currentUser
+                    successAuth()
+                }
+            }
+        }
+        else{
+            showSnackBar("fail","cancel")
         }
     }
 
@@ -89,9 +97,10 @@ class LoginFragment : Fragment() {
             binding.root,
             message,
             Snackbar.LENGTH_SHORT
-        ).setAction(cancel){}.show()
+        ).setAction(cancel) {}.show()
     }
-    companion object{
+
+    companion object {
         const val cancel = "cancel"
     }
 }

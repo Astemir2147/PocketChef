@@ -3,11 +3,21 @@ package com.example.pocketchef.presentation.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+
+    /**
+     * Выполняет проверку авторизован ли пользователь
+     */
+    fun checkLogined() {
+        // viewModelScope.launch {
+        //     if (loginInteracts.checkIfAuthentificated()) {
+        //         mutableLoginAttemptResultLiveData.value = true
+        //     }
+        // }
     }
-    val text: LiveData<String> = _text
+
 }
