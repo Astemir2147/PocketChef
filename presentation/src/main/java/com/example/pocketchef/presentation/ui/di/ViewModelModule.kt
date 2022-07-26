@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.core.di.ViewModelFactory
 import com.example.core.di.ViewModelKey
 import com.example.pocketchef.presentation.ui.authentication.LoginViewModel
+import com.example.pocketchef.presentation.ui.home.HomeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,5 +18,10 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
-    abstract fun providesPostsViewModel(viewModel: LoginViewModel): ViewModel
+    abstract fun providesLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun provideHomeViewModel(homeViewModel: HomeViewModel):ViewModel
 }

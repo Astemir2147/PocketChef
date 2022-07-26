@@ -1,6 +1,6 @@
 package com.example.pocketchef.data.db.validation
 
-import com.example.pocketchef.data.db.model.AuthDateUser
+import com.example.core.model.AuthDateUser
 
 /**
  * Класс содержащий методы салидаии для полей ввода при регистрации

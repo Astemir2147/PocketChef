@@ -2,7 +2,7 @@ package com.example.pocketchef.presentation.ui.authentication
 
 import androidx.lifecycle.ViewModel
 import com.example.pocketchef.data.db.validation.Validator
-import com.example.pocketchef.data.db.model.AuthDateUser
+import com.example.core.model.AuthDateUser
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(

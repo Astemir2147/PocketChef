@@ -1,4 +1,4 @@
-package com.example.pocketchef.data.db.model
+package com.example.core.model
 
 import com.example.core.extension.EMPTY
 
