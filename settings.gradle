@@ -8,7 +8,3 @@ pluginManagement {
 
 rootProject.name = "PocketChef"
 include ':app'
-include ':data'
-include ':presentation'
-include ':core'
-include ':domain'

@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-
+    id 'kotlin-kapt'
 }
 
 android {
@@ -37,11 +37,32 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':core')
 
-    implementation project(path: ':data')
-    implementation project(path: ':domain')
-    implementation project(path: ':presentation')
+    //dagger
+    api 'com.google.dagger:dagger:2.37'
+    kapt 'com.google.dagger:dagger-compiler:2.37'
+    api 'javax.inject:javax.inject:1'
+
+    //material 3
+    implementation("androidx.compose.material3:material3:1.0.0-alpha13")
+    implementation("androidx.compose.material3:material3-window-size-class:1.0.0-alpha13")
+
+    //firebase
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
+
+    //navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+
+    //Room
+    def roomVersion = "2.4.2"
+
+    implementation "androidx.room:room-runtime:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$roomVersion"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$roomVersion"
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
