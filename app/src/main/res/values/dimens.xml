@@ -5,6 +5,7 @@
 
     <dimen name="button_login_horizontal_margin">60dp</dimen>
     <dimen name="button_login_vertical_margin">10dp</dimen>
+    <dimen name="card_margin">5dp</dimen>
     <item name="reg_link_text_size" type="dimen">16sp</item>
 
 </resources>
