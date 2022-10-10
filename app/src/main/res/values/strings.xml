@@ -17,4 +17,5 @@
     <string name="signIn">Войти</string>
     <string name="registration">Регистрация</string>
     <string name="ingredient_count_hint">Количество</string>
+    <string name="title_ingredients_text">Список ингредиентов</string>
 </resources>
