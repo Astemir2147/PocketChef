@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pocketchef.core.di.ViewModelFactory
 import com.example.pocketchef.core.di.ViewModelKey
 import com.example.pocketchef.features.authentication.presentation.LoginViewModel
+import com.example.pocketchef.features.ingredients.presentation.IngredientsViewModel
 
 import dagger.Binds
 import dagger.Module
@@ -19,4 +20,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun providesPostsViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(IngredientsViewModel::class)
+    abstract fun providesIngViewModel(viewModel: IngredientsViewModel): ViewModel
 }

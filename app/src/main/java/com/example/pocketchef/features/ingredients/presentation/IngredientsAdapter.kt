@@ -26,14 +26,18 @@ class IngredientsAdapter(
 
     fun addIngredient(newIngredient: IngredientsListItem) {
         ingredients.add(newIngredient)
-        notifyItemChanged(ingredients.size-1)
+        notifyDataSetChanged()
     }
 
-    fun refreshData(newIngredients: List<IngredientsListItem>) {
+    fun setData(newIngredients: List<IngredientsListItem>) {
         ingredients.clear()
         ingredients.addAll(newIngredients)
         notifyDataSetChanged()
     }
+
+    fun removeIngredientByPosition(position: Int) = ingredients.removeAt(position)
+
+    fun removeIngredient(ingredient: IngredientsListItem) = ingredients.remove(ingredient)
 
     override fun getItemCount(): Int  = ingredients.size
 
